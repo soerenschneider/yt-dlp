@@ -9,6 +9,7 @@ RUN useradd --create-home --shell /bin/bash yt
 USER yt
 WORKDIR /home/yt
 
-RUN pip3 install --user yt-dlp==2023.7.6
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt --user
 
 ENTRYPOINT ["/home/yt/.local/bin/yt-dlp"]
