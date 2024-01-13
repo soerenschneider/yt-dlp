@@ -5,11 +5,11 @@ RUN apt-get -y update \
     && rm -rf /var/lib/apt/* \
     && apt remove apt --autoremove -y --allow-remove-essential
 
+
+COPY requirements.txt /
+RUN pip3 install -r /requirements.txt
+
 RUN useradd --create-home --shell /bin/bash yt
 USER yt
-WORKDIR /home/yt
 
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt --user
-
-ENTRYPOINT ["/home/yt/.local/bin/yt-dlp"]
+ENTRYPOINT ["yt-dlp"]
