@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-grep ^yt-dlp requirements.txt | awk -F'==' '{print $2}'
+git tag $(grep ^yt-dlp requirements.txt | awk -F'==' '{print $2}')
