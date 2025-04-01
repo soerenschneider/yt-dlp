@@ -6,5 +6,5 @@
       "matchPackagePatterns": ["^dockerfile$"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
-    },
+    }
 }
