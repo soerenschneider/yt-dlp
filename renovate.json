@@ -1,10 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",    
   "packageRules": [
     {
-      "description": "Automatically merge minor and patch updates for Docker dependencies",
-      "matchPackagePatterns": ["^dockerfile$"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "GitHub Actions Updates",
+      "automerge": true
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "groupName": "Docker Updates",
       "automerge": true
     }
+  ]
 }
